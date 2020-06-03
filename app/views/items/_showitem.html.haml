@@ -72,15 +72,17 @@
                   = "(税込)"
                 %p1
                   = "送料込み"
-              - if user_signed_in?&& current_user.id != @item.user_id
-                -if user_signed_in?&& current_user.id=@item.buyer_id
+              
+                -if @item.buyer_id.present? 
                   .main__whole__center__box__content__price-purchase
                     .main__whole__center__box__content__price-purchase-sold
                       売り切れました
-                - else
-                  .main__whole__center__box__content__price-purchase
-                  = link_to purchase_item_path(@item.id), class: "main_purchase_btn" do
-                    購入画面にすすむ
+                - if user_signed_in?&& current_user.id != @item.user_id
+                  -if user_signed_in?&& current_user.id=@item.buyer_id
+                  - else
+                    .main__whole__center__box__content__price-purchase
+                    = link_to purchase_item_path(@item.id), class: "main_purchase_btn" do
+                      購入画面にすすむ
               
             .main__whole__center__box__content__description
               =@item.introduction
@@ -143,7 +145,7 @@
 
           .main__whole__center__comment-room
             %ul.main__whole__center__comment-room__Contents
-            %form.main__whole__center__comment-room__Contents__new-comment{"accept-charset": "UTF-8", action: "#", method: "post"}
+            .main__whole__center__comment-room__Contents__new-comment{"accept-charset": "UTF-8", action: "#", method: "post"}
               %input{name: "utf8", type: "hidden", value: "✓"}/
               %input{name: "authenticity_token", type: "hidden", value: "z7Qut4WXQ3mF3zKKLKZrd1Fn+L/Qvfjm2htA/nurRRIj6zbRfEQ5aPKt2pDDScEFgn+UVEEZ7t0WPSCFBEH9WA=="}/
               %textarea.main__whole__center__comment-room__Contents__new-comment__comment-body{name: "comment[body]", required: "required"}

@@ -86,16 +86,17 @@
 //メイン
 
 .mypagemain{
-  margin: 40px auto 0;
+  margin:40px auto 0;
   max-width: 1020px;
   padding: 0 0 40px;
   height: 100%;
   display: flex;
+  background-color: #fff;
 
 
   &-left{
     width: 280px;
-    margin: 0 40px 0 0;
+    margin: 0 40px 0 0px;
  
     .mypage-nav-list{
       i{
@@ -118,10 +119,18 @@
         color: #333;
         top: 50%;
         // font-weight: 600;
+        &:hover{
+          background-color: #fafafa;
+        }
+        
         a{
           text-decoration: none;
           color: #333;
           padding: 16px;
+          &:hover{
+            color: #000;
+            font-weight: 600;
+          }
         }
       }
     }
@@ -135,18 +144,48 @@
 
   &-right{
   width: 700px;
+  margin-top: 40px;
   
   
     .mypage-user{
       height: 200px;
       position: relative;
       padding: 20px;
-      background-color: #3CCACE;
+      background-image: image-url("user-bg.jpg");
       background-repeat: no-repeat;
       //縦横に背景画像を繰り返して表示します。これが初期値です。
       background-size: cover;
       //縦横比は保持して、背景領域を完全に覆う最小サイズになるように背景画像を拡大縮小する
       text-align: center;
+      img{
+        margin-top: 30px;
+      }
+      .mypageimg-top{
+        padding-top: 10px;
+      }
+      .mypageimg-number{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-evalution{
+          font-size: 14px;
+          margin-right: 10px;
+          &_num{
+            font-size:16px;
+            font-weight: bold;
+            margin-left: 10px;
+          }
+        }
+        &_number{
+          font-size: 14px;
+          margin-left: 10px;
+          &_num{
+            font-size:16px;
+            font-weight: bold;
+            margin-left: 10px;
+          }
+        }
+      }
     }
       .mypage-user-tab{
         padding: 0;
@@ -175,11 +214,12 @@
         color: #333;
       }
       ul.mypage-user-tab-tabs li.active{
-        background: #fafafa;
+        background-color:#fafafa;
         color: #333;
         font-size: 16px;
         line-height: 72px;
         font-weight: 700;
+        border-top: 1px solid #3ccace;
       }
       ul.mypage-user-tab-tabs li :not(.active):hover{
         opacity: 0.5;
@@ -197,6 +237,10 @@
       }
       ul.mypage-user-tab-content li.show{
         display: block;
+        background-color:#fafafa;
+      }
+      .tabcontent1-list{
+        
       }
       
     
@@ -208,7 +252,7 @@
 
       &-head{
         padding: 0 16px;
-        background: #fafafa;
+        background: #EEEEEE;
         font-size: 16px;
         line-height: 72px;
       }
@@ -239,6 +283,7 @@
         font-size: 16px;
         line-height: 72px;
         font-weight: 700;
+        border-top: 1px solid #3ccace;
       }
       ul.mypage-tab-item li :not(.active):hover{
         opacity: 0.5;
@@ -249,13 +294,14 @@
         font-size: 14px;
         padding: 16px;
         line-height: 1.4;
-        background: #fafafa;
+        background: #fff;
         // color: #fff;
         min-height: 150px;
         display: none;
       }
       ul.mypage-user-tab-content li li.show{
         display: block;
+        background-color:#fafafa;
       }
   
   }

@@ -20,12 +20,27 @@
   =render "headmypageleft"
   .mypagemain-right
     %section.mypage-user
+      = image_tag "member_photo.png" , width:70, height:70, class:"kawa-image"
+      .mypageimg-top
+        =current_user.nickname
+      .mypageimg-number
+        .mypageimg-number-evalution
+          評価
+          %span.mypageimg-number-evalution_num
+            0
+        .mypageimg-number_number
+          出品数
+          %span.mypageimg-number_number_num
+            0
+            -# =@user.items.count
     %section.mypage-user-tab
       %ul.mypage-user-tab-tabs
         %li.newtabs1.active お知らせ
         %li.newtabs1 やることリスト
       %ul.mypage-user-tab-content 
-        %li.tabcontent1.show aaaa 
+        %li.tabcontent1.show 
+          .tabcontent1-list
+            aaaa 
         %li.tabcontent1 bbb
         
           
@@ -34,8 +49,8 @@
       %h2.mypage-tab-container-head 購入した商品
       %ul.mypage-tab-item
         %li.newtabs2.active 取引中
-        %li.newtabs2 やることリスト
+        %li.newtabs2 やることリスト  
       %ul.mypage-user-tab-content 
         %li.tabcontent2.show aaaa 
         %li.tabcontent2 bbb
-=render "footer"
+  =render "footer"
