@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:purchase, :pay]
   before_action :category_parents, only: [:new, :edit]
   def index
-    @items = Item.includes(:images).order('created_at DESC').limit(9)
+    @items = Item.includes(:images).order('created_at DESC').limit(12)
     @parents = Category.where(ancestry: nil)
   end
 
